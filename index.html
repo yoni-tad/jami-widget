@@ -13,26 +13,31 @@
   <style>
     /* Global Styles */
     body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 100vh; /* Ensure full viewport height */
+  text-align: center;
+  flex-direction: column; /* Added to center vertically */
+}
 
-    .container {
-      max-width: 800px;
-      padding: 40px;
-      background-color: #1e1e1e;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-      margin: 20px;
-    }
+/* Adjust container padding to avoid cutting off content on smaller screens */
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 40px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  margin: 20px;
+  box-sizing: border-box;
+}
 
     h1 {
       font-size: 2.5rem;
@@ -46,6 +51,28 @@
       line-height: 1.6;
       margin-bottom: 20px;
     }
+    
+    @media (max-width: 768px) {
+  body {
+    justify-content: flex-start; /* Start from top, avoiding center cut-off */
+  }
+
+  .container {
+    padding: 20px; /* Reduced padding on small screens */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Adjusted heading size */
+  }
+
+  p {
+    font-size: 0.9rem; /* Adjusted text size for readability */
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
 
     .cta-btn {
       display: inline-block;
